@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Erwan Dogru — Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --bg: #0a0a0f;
+        --surface: #12121a;
+        --surface2: #1a1a26;
+        --border: rgba(255, 255, 255, 0.07);
+        --border2: rgba(255, 255, 255, 0.13);
+        --text: #f0f0f4;
+        --muted: #888899;
+        --accent: #6c63ff;
+        --accent2: #00d4aa;
+        --accent3: #ff6b6b;
+        --tag-bg: rgba(108, 99, 255, 0.12);
+        --tag-border: rgba(108, 99, 255, 0.3);
+        --tag-text: #a89fff;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 15px;
+        line-height: 1.7;
+        overflow-x: hidden;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: rgba(10, 10, 15, 0.85);
+        backdrop-filter: blur(20px);
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        height: 60px;
+      }
+
+      .nav-logo {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: 18px;
+        color: var(--text);
+        letter-spacing: -0.5px;
+      }
+
+      .nav-logo span {
+        color: var(--accent);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--text);
+      }
+
+      .page-wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        align-items: center;
+        gap: 2rem;
+        padding: 7rem 0 4rem;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 700px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--tag-bg);
+        border: 1px solid var(--tag-border);
+        border-radius: 100px;
+        padding: 6px 14px;
+        font-size: 12px;
+        color: var(--tag-text);
+        margin-bottom: 1.5rem;
+        letter-spacing: 0.05em;
+      }
+
+      .hero-badge::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--accent2);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.35;
+        }
+      }
+
+      .hero h1 {
+        font-family: "Syne", sans-serif;
+        font-weight: 800;
+        font-size: clamp(3rem, 7vw, 5.4rem);
+        line-height: 0.95;
+        letter-spacing: -2px;
+        margin-bottom: 1rem;
+      }
+
+      .hero h1 .accent {
+        color: var(--accent);
+      }
+
+      .hero-sub {
+        font-size: 17px;
+        color: var(--muted);
+        max-width: 620px;
+        margin-bottom: 1.75rem;
+        line-height: 1.85;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        color: var(--text);
+        font-size: 12px;
+      }
+
+      .hero-chip i {
+        font-size: 15px;
+        color: var(--accent2);
+      }
+
+      .hero-actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 24px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+        font-family: "DM Sans", sans-serif;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .btn-primary:hover {
+        background: #7c75ff;
+        transform: translateY(-1px);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--border2);
+      }
+
+      .btn-ghost:hover {
+        color: var(--text);
+        background: var(--surface);
+      }
+
+      .hero-side {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-panel {
+        background: linear-gradient(
+          135deg,
+          rgba(108, 99, 255, 0.08) 0%,
+          rgba(255, 255, 255, 0.03) 100%
+        );
+        border: 1px solid rgba(108, 99, 255, 0.2);
+        border-radius: 22px;
+        padding: 1.5rem;
+        backdrop-filter: blur(12px);
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-panel-title {
+        font-family: "Syne", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .hero-stack {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.85rem;
+      }
+
+      .stack-box {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1rem 0.75rem;
+        text-align: center;
+      }
+
+      .stack-box i {
+        font-size: 28px;
+        margin-bottom: 0.5rem;
+      }
+
+      .stack-box span {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .hero-orb {
+        position: absolute;
+        right: -140px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 520px;
+        height: 520px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at center,
+          rgba(108, 99, 255, 0.16) 0%,
+          rgba(0, 212, 170, 0.06) 45%,
+          transparent 72%
+        );
+        pointer-events: none;
+      }
+
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 5rem 2rem;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .section-label {
+        font-family: "Syne", sans-serif;
+        font-size: 12px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .section-line {
+        flex: 1;
+        height: 1px;
+        background: var(--border);
+      }
+
+      .section-title {
+        font-family: "Syne", sans-serif;
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+        font-weight: 800;
+        letter-spacing: -1px;
+        margin-bottom: 0.75rem;
+      }
+
+      .section-sub {
+        color: var(--muted);
+        max-width: 700px;
+        margin-bottom: 2.5rem;
+      }
+
+      .projects-group {
+        margin-bottom: 2.5rem;
+      }
+
+      .group-title {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: "Syne", sans-serif;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+        color: var(--text);
+      }
+
+      .group-title::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent2);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 1.25rem;
+      }
+
+      .project-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.25s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        opacity: 0;
+        transition: opacity 0.2s;
+      }
+
+      .project-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-3px);
+      }
+
+      .project-card:hover::before {
+        opacity: 1;
+      }
+
+      .project-card.featured {
+        border-color: rgba(108, 99, 255, 0.25);
+        background: linear-gradient(
+          135deg,
+          rgba(108, 99, 255, 0.05) 0%,
+          var(--surface) 100%
+        );
+      }
+
+      .project-card.featured::before {
+        opacity: 1;
+      }
+
+      .project-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .project-icon i,
+      .project-icon svg {
+        width: 24px;
+        height: 24px;
+        font-size: 24px;
+        color: var(--text);
+      }
+
+      .project-links {
+        display: flex;
+        gap: 8px;
+      }
+
+      .project-link {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        border: 1px solid var(--border2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 14px;
+        transition: all 0.2s;
+      }
+
+      .project-link:hover {
+        color: var(--text);
+        border-color: var(--accent);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .project-badge {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 100px;
+        margin-bottom: 0.75rem;
+      }
+
+      .badge-featured {
+        background: rgba(108, 99, 255, 0.15);
+        color: var(--tag-text);
+        border: 1px solid var(--tag-border);
+      }
+
+      .badge-perso {
+        background: rgba(0, 212, 170, 0.1);
+        color: #4ecdc4;
+        border: 1px solid rgba(0, 212, 170, 0.25);
+      }
+
+      .badge-sae {
+        background: rgba(255, 168, 40, 0.1);
+        color: #ffaa28;
+        border: 1px solid rgba(255, 168, 40, 0.25);
+      }
+
+      .badge-stage {
+        background: rgba(255, 107, 107, 0.1);
+        color: #ff8080;
+        border: 1px solid rgba(255, 107, 107, 0.25);
+      }
+
+      .badge-algo {
+        background: rgba(56, 152, 255, 0.1);
+        color: #5b9fff;
+        border: 1px solid rgba(56, 152, 255, 0.25);
+      }
+
+      .project-card h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 0.55rem;
+        letter-spacing: -0.3px;
+      }
+
+      .project-card p {
+        font-size: 13.5px;
+        color: var(--muted);
+        line-height: 1.65;
+        margin-bottom: 1.25rem;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tag {
+        font-size: 11px;
+        font-weight: 500;
+        color: var(--muted);
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 4px 9px;
+        transition: all 0.15s;
+      }
+
+      .tag:hover {
+        color: var(--tag-text);
+        border-color: var(--tag-border);
+        background: var(--tag-bg);
+      }
+
+      .xp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .xp-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.5rem 1.75rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 1rem;
+        transition: border-color 0.2s;
+      }
+
+      .xp-card:hover {
+        border-color: var(--border2);
+      }
+
+      .xp-role {
+        font-family: "Syne", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+
+      .xp-company {
+        font-size: 13px;
+        color: var(--accent2);
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .xp-desc {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .xp-period {
+        font-size: 12px;
+        color: var(--muted);
+        white-space: nowrap;
+        text-align: right;
+        padding-top: 2px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .skill-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.4rem;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+
+      .skill-card:hover {
+        border-color: var(--border2);
+        transform: translateY(-2px);
+      }
+
+      .skill-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 24px;
+      }
+
+      .skill-icon i {
+        font-size: 24px;
+      }
+
+      .skill-icon.purple {
+        background: rgba(108, 99, 255, 0.15);
+        color: #a89fff;
+      }
+
+      .skill-icon.teal {
+        background: rgba(0, 212, 170, 0.15);
+        color: #4ecdc4;
+      }
+
+      .skill-icon.coral {
+        background: rgba(255, 107, 107, 0.15);
+        color: #ff8d8d;
+      }
+
+      .skill-icon.amber {
+        background: rgba(255, 168, 40, 0.15);
+        color: #ffbf66;
+      }
+
+      .skill-icon.blue {
+        background: rgba(56, 152, 255, 0.15);
+        color: #74b5ff;
+      }
+
+      .skill-card h3 {
+        font-family: "Syne", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+
+      .skill-card p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 1rem;
+      }
+
+      .contact-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 1.25rem 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        text-decoration: none;
+        color: var(--muted);
+        transition: all 0.2s ease;
+        min-height: 96px;
+      }
+
+      .contact-card:hover {
+        color: var(--text);
+        border-color: var(--border2);
+        background: var(--surface2);
+        transform: translateY(-2px);
+      }
+
+      .contact-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .contact-icon i,
+      .contact-icon svg {
+        width: 22px;
+        height: 22px;
+        font-size: 22px;
+        color: var(--accent);
+      }
+
+      .contact-label {
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 2px;
+      }
+
+      .contact-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        line-height: 1.35;
+      }
+
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 2rem;
+        text-align: center;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      footer span {
+        color: var(--accent);
+      }
+
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+
+        .hero-side {
+          max-width: 520px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav {
+          padding: 0 1rem;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .page-wrap {
+          padding: 0 1rem;
+        }
+
+        section {
+          padding: 3rem 1rem;
+        }
+
+        .hero {
+          padding: 5.5rem 0 3rem;
+        }
+
+        .hero-orb {
+          display: none;
+        }
+
+        .xp-card {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stack {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">Erwan<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#projets">Projets</a></li>
+        <li><a href="#experience">Expérience</a></li>
+        <li><a href="#competences">Compétences</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="page-wrap">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-badge">Disponible pour stage / alternance</div>
+          <h1>Erwan<br /><span class="accent">Dogru</span></h1>
+          <p class="hero-sub">
+            Étudiant en informatique orienté développement full-stack, systèmes,
+            réseaux et virtualisation. Je conçois des applications web, mobiles
+            et des environnements techniques mêlant Linux, virtualisation,
+            réseau et architecture logicielle.
+          </p>
+
+          <div class="hero-meta">
+            <div class="hero-chip">
+              <i class="devicon-linux-plain"></i> Linux
+            </div>
+            <div class="hero-chip">
+              <i class="devicon-docker-plain"></i> Docker
+            </div>
+            <div class="hero-chip"><i class="devicon-java-plain"></i> Java</div>
+            <div class="hero-chip">
+              <i class="devicon-react-original"></i> React
+            </div>
+            <div class="hero-chip">
+              <i class="devicon-spring-original"></i> Spring Boot
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+            <a href="#contact" class="btn btn-ghost">Me contacter</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-panel">
+            <div class="hero-panel-title">Stack principale</div>
+            <div class="hero-stack">
+              <div class="stack-box">
+                <i class="devicon-java-plain colored"></i>
+                <span>Java</span>
+              </div>
+              <div class="stack-box">
+                <i class="devicon-spring-original colored"></i>
+                <span>Spring</span>
+              </div>
+              <div class="stack-box">
+                <i class="devicon-react-original colored"></i>
+                <span>React</span>
+              </div>
+              <div class="stack-box">
+                <i class="devicon-android-plain colored"></i>
+                <span>Android</span>
+              </div>
+              <div class="stack-box">
+                <i class="devicon-linux-plain colored"></i>
+                <span>Linux</span>
+              </div>
+              <div class="stack-box">
+                <i class="devicon-postgresql-plain colored"></i>
+                <span>SQL</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-orb"></div>
+      </div>
+    </div>
+
+    <section id="projets">
+      <div class="section-header">
+        <span class="section-label">Réalisations</span>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-title">Projets</p>
+      <p class="section-sub">
+        Projets réalisés au cours de ma formation en informatique, du
+        développement bas niveau aux applications web full-stack, mobiles et
+        systèmes.
+      </p>
+
+      <div class="projects-group">
+        <div class="group-title">Projets principaux</div>
+        <div class="projects-grid">
+          <div class="project-card featured">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(108, 99, 255, 0.12)"
+              >
+                <i class="devicon-nodejs-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-featured">Projet phare</span>
+            <h3>Jeu web multijoueur temps réel</h3>
+            <p>
+              Développement d’un jeu web multijoueur avec communication temps
+              réel via Socket.IO. Les joueurs peuvent créer un lobby, inviter
+              d’autres participants, répondre simultanément aux questions puis
+              obtenir un classement final avec gestion des profils et des
+              scores.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Socket.IO</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Full-stack</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(0, 212, 170, 0.12)"
+              >
+                <i class="devicon-spring-original"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-featured">Application Web</span>
+            <h3>Plateforme de mise en vente</h3>
+            <p>
+              Développement d’une application web de mise en relation entre
+              particuliers pour la vente d’objets. Le projet repose sur une
+              architecture MVC avec sécurité, API REST, gestion des utilisateurs
+              et persistance des données.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Spring Boot</span>
+              <span class="tag">REST API</span>
+              <span class="tag">Architecture MVC</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(255, 168, 40, 0.12)"
+              >
+                <i class="devicon-android-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-featured">Mobile</span>
+            <h3>PowerHome — Application Android</h3>
+            <p>
+              Application mobile conçue pour une résidence participative afin de
+              suivre la consommation électrique, consulter les usages en temps
+              réel et réserver des équipements partagés dans une logique
+              éco-responsable.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Android Studio</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">XML</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-group">
+        <div class="group-title">Applications & plateformes</div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(255, 107, 107, 0.12)"
+              >
+                <i class="devicon-java-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Java</span>
+            <h3>Plateforme de services dynamiques BRi</h3>
+            <p>
+              Développement d’une plateforme illustrant les concepts OSGi avec
+              services dynamiques, architecture modulaire et interaction entre
+              programmeurs et utilisateurs.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">OSGi</span>
+              <span class="tag">Architecture modulaire</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(255, 168, 40, 0.12)"
+              >
+                <i class="devicon-dotnetcore-plain"></i>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/userwan777/S2.01-Mastermind"
+                  target="_blank"
+                  class="project-link"
+                  title="GitHub"
+                  >↗</a
+                >
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Jeu</span>
+            <h3>Mastermind</h3>
+            <p>
+              Création du jeu Mastermind avec logique de déduction, gestion des
+              niveaux et interface graphique dans le cadre d’un projet
+              académique.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Visual Basic .NET</span>
+              <span class="tag">Logique de jeu</span>
+              <span class="tag">Interface graphique</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(0, 212, 170, 0.12)"
+              >
+                <i class="devicon-html5-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Web</span>
+            <h3>Refonte d’un site de ville</h3>
+            <p>
+              Modernisation d’un site obsolète avec refonte de l’interface,
+              amélioration de l’expérience utilisateur et mise à jour de la
+              structure visuelle.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">HTML</span>
+              <span class="tag">CSS</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">UX/UI</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(56, 152, 255, 0.12)"
+              >
+                <i class="devicon-html5-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Portfolio</span>
+            <h3>E-Portfolio</h3>
+            <p>
+              Création d’un site personnel pour présenter mon parcours, mes
+              projets et mes compétences techniques à travers une interface web
+              sobre et moderne.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">Visual Studio Code</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-group">
+        <div class="group-title">Systèmes & Réseaux</div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(0, 212, 170, 0.12)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 7h6m6 0h6M6 7v10m12-10v10M6 17h12M9 12h6"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Réseau</span>
+            <h3>Infrastructure conteneurisée</h3>
+            <p>
+              Mise en place d’une infrastructure conteneurisée avec Docker et
+              Kubernetes, accompagnée d’une analyse du trafic réseau avec
+              Wireshark afin de comprendre les communications entre conteneurs.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Docker</span>
+              <span class="tag">Kubernetes</span>
+              <span class="tag">Wireshark</span>
+              <span class="tag">Réseau</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(0, 212, 170, 0.12)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 7h6m6 0h6M6 7v10m12-10v10M6 17h12M9 12h6"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span class="project-badge badge-sae">Réseau</span>
+            <h3>Projet administration système sur Cisco</h3>
+            <p>
+              Mise en place d’un service réseau et administration de systèmes
+              communicants avec travail sur l’adressage, l’automatisation et la
+              simulation d’infrastructure réseau.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Cisco Packet Tracer</span>
+              <span class="tag">Réseau</span>
+              <span class="tag">Adressage</span>
+              <span class="tag">Systèmes</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(108, 99, 255, 0.12)"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                >
+                  <rect x="3" y="4" width="18" height="12" rx="2" ry="2" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8 20h8M12 16v4"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <span class="project-badge badge-sae">Virtualisation</span>
+            <h3>Installation d’un poste de développement</h3>
+            <p>
+              Mise en place d’un environnement de développement avec création et
+              configuration de machines virtuelles pour tester, développer et
+              expérimenter différents environnements logiciels.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">VirtualBox</span>
+              <span class="tag">VMware</span>
+              <span class="tag">Machines virtuelles</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-group">
+        <div class="group-title">Algorithmique & bas niveau</div>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(255, 168, 40, 0.12)"
+              >
+                <i class="devicon-c-plain"></i>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/userwan777/Gestion-d-une-Formation"
+                  target="_blank"
+                  class="project-link"
+                  title="GitHub"
+                  >↗</a
+                >
+              </div>
+            </div>
+            <span class="project-badge badge-algo">C</span>
+            <h3>Gestion d’une formation</h3>
+            <p>
+              Application de gestion développée en C pour manipuler des
+              étudiants, modules, notes et fichiers avec une approche plus bas
+              niveau centrée sur les structures de données.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">C</span>
+              <span class="tag">Structures de données</span>
+              <span class="tag">Gestion de fichiers</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(255, 107, 107, 0.12)"
+              >
+                <i class="devicon-cplusplus-plain"></i>
+              </div>
+              <div class="project-links">
+                <a
+                  href="https://github.com/userwan777/Quart_De_Singe"
+                  target="_blank"
+                  class="project-link"
+                  title="GitHub"
+                  >↗</a
+                >
+              </div>
+            </div>
+            <span class="project-badge badge-algo">C++</span>
+            <h3>Quart de singe</h3>
+            <p>
+              Implémentation du jeu de lettres Quart de singe en C++ avec
+              gestion du dictionnaire, logique multi-joueurs et détection des
+              mots valides.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">C++</span>
+              <span class="tag">Jeu</span>
+              <span class="tag">Algorithmique</span>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="project-header">
+              <div
+                class="project-icon"
+                style="background: rgba(56, 152, 255, 0.12)"
+              >
+                <i class="devicon-java-plain"></i>
+              </div>
+            </div>
+            <span class="project-badge badge-algo">Algorithmique</span>
+            <h3>Union-Find performant</h3>
+            <p>
+              Travail autour d’une structure Union-Find optimisée avec réflexion
+              sur la complexité algorithmique et les meilleures stratégies
+              d’optimisation.
+            </p>
+            <div class="tech-tags">
+              <span class="tag">Java</span>
+              <span class="tag">Complexité</span>
+              <span class="tag">Structures de données</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" style="border-top: 1px solid var(--border)">
+      <div class="section-header">
+        <span class="section-label">Parcours</span>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-title">Expérience</p>
+      <p class="section-sub">
+        Expériences professionnelles récentes avec un focus sur le développement
+        full-stack, les APIs, l’UX et les applications métiers.
+      </p>
+
+      <div class="xp-list">
+        <div class="xp-card">
+          <div>
+            <div class="xp-role">Stage — Développement full-stack</div>
+            <div class="xp-company">Paris-Elec, Paris</div>
+            <div class="xp-desc">
+              Développement d’une solution web et mobile de gestion client,
+              devis et interventions. Mise en place d’APIs REST avec Spring
+              Boot, automatisation d’envois, logique métier et interface pensée
+              pour un usage terrain.
+            </div>
+          </div>
+          <div class="xp-period">04/2025 — 07/2025</div>
+        </div>
+
+        <div class="xp-card">
+          <div>
+            <div class="xp-role">Stage — Développement full-stack</div>
+            <div class="xp-company">Afrilangues, Paris</div>
+            <div class="xp-desc">
+              Amélioration d’une application web éducative en React.js et Spring
+              Boot, refonte visuelle sur Figma et gestion du back-end MongoDB
+              dans un contexte multi-utilisateurs.
+            </div>
+          </div>
+          <div class="xp-period">05/2023 — 06/2023</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="competences" style="border-top: 1px solid var(--border)">
+      <div class="section-header">
+        <span class="section-label">Stack</span>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-title">Compétences</p>
+      <p class="section-sub">
+        Compétences techniques en développement, systèmes, réseaux et bases de
+        données.
+      </p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon purple">
+            <i class="devicon-linux-plain"></i>
+          </div>
+          <h3>Systèmes & Réseaux</h3>
+          <p>
+            Linux, Bash, TCP/IP, Cisco Packet Tracer, Wireshark, administration
+            réseau et environnements systèmes.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon teal">
+            <i class="devicon-docker-plain"></i>
+          </div>
+          <h3>Virtualisation & Outils</h3>
+          <p>
+            VirtualBox, VMware, Docker, environnement de test, virtualisation et
+            mise en place de postes de développement.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon coral">
+            <i class="devicon-java-plain"></i>
+          </div>
+          <h3>Développement back-end</h3>
+          <p>
+            Java, Spring Boot, Spring Security, Node.js, API REST, logique
+            métier, architecture applicative.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon amber">
+            <i class="devicon-react-original"></i>
+          </div>
+          <h3>Développement front-end</h3>
+          <p>
+            React.js, JavaScript, HTML5, CSS3, interface web, intégration et
+            UX/UI.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon blue">
+            <i class="devicon-postgresql-plain"></i>
+          </div>
+          <h3>Bases de données</h3>
+          <p>
+            PostgreSQL, MySQL, MongoDB, SQLite, modélisation et persistance.
+          </p>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon purple">
+            <i class="devicon-android-plain"></i>
+          </div>
+          <h3>Développement mobile</h3>
+          <p>
+            Android Studio, Java, SQLite, XML, applications mobiles natives et
+            logique métier embarquée.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="border-top: 1px solid var(--border)">
+      <div class="section-header">
+        <span class="section-label">Contact</span>
+        <div class="section-line"></div>
+      </div>
+      <p class="section-title">Me contacter</p>
+      <p class="section-sub">
+        Liens directs pour me contacter ou consulter mes profils.
+      </p>
+
+      <div class="contact-grid">
+        <a href="mailto:erwan.dogru@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <rect x="2" y="5" width="20" height="14" rx="3"></rect>
+              <path d="M22 7L12 13L2 7"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">erwan.dogru@gmail.com</div>
+          </div>
+        </a>
+
+        <a href="tel:0650080027" class="contact-card">
+          <div class="contact-icon">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.7"
+            >
+              <path
+                d="M22 16.9V21a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 3 6.2 2 2 0 0 1 5 4h4.1a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.5 1.7l-1.3 1.3a16 16 0 0 0 6.8 6.8l1.3-1.3a2 2 0 0 1 1.7-.5l3 .5a2 2 0 0 1 1.7 2z"
+              ></path>
+            </svg>
+          </div>
+          <div>
+            <div class="contact-label">Téléphone</div>
+            <div class="contact-value">06 50 08 00 27</div>
+          </div>
+        </a>
+
+        <a
+          href="https://linkedin.com/in/erwan-dogru"
+          target="_blank"
+          class="contact-card"
+        >
+          <div class="contact-icon">
+            <i class="devicon-linkedin-plain"></i>
+          </div>
+          <div>
+            <div class="contact-label">LinkedIn</div>
+            <div class="contact-value">erwan-dogru</div>
+          </div>
+        </a>
+
+        <a
+          href="https://github.com/userwan777"
+          target="_blank"
+          class="contact-card"
+        >
+          <div class="contact-icon">
+            <i class="devicon-github-original"></i>
+          </div>
+          <div>
+            <div class="contact-label">GitHub</div>
+            <div class="contact-value">userwan777</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <footer><span>Erwan Dogru</span> — Étudiant en Informatique</footer>
+  </body>
+</html>
